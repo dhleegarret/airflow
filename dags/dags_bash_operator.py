@@ -12,7 +12,7 @@ with DAG(
     #tags=["example", "example2"],   # 각 DAG의 태그값 설정 
     #params={"example_key": "example_value"}, #Task들에 공통적으로 넘겨줄 파라미터
 ) as dag:
-    # Task 정의: BashOperator
+    # Task 정의: BashOperator: 리눅스 쉘명령어(echo, mkdir 등)를 DAG내에서 수행할 수 있도록 함
     bash_t1 = BashOperator(
         task_id="bash_t1",   #DAG의 '그래프 보기' 메뉴를 통해 확인 가능한 Task 이름 (그러나 오퍼레이터 객체명과 동일하게 세팅)
         bash_command="echo whoami", #수행할 쉘스크립트
