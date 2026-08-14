@@ -12,7 +12,7 @@ with DAG(
 ) as dag:
     def select_fruit():
         fruit = ['APPLE', 'BANANA', 'ORANGE', 'AVOCADO']
-        rand_int = random.randint(0,3) #0~3까지 임의의 숫자 반환
+        rand_int = random.randint(0,3) #0~3까지 임의의 숫자 반환 (fruit 리스트의 랜덤값 출력 위함)
         print(fruit[rand_int])
 
     py_t1 = PythonOperator(
