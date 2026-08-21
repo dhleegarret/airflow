@@ -29,6 +29,6 @@ with DAG(
         print('ts:' + kwargs['ts'])
         print('data_interval_start:' + str(kwargs['data_interval_start']))
         print('data_interval_end:' + str(kwargs['data_interval_end']))
-        print('task_instance:' + str(kwargs['t2']))
+        print('task_instance:' + str(kwargs['ti']))
 
     python_t1 >>  python_function2()    #python_function2(): 데코레이터 함수명으로만 지정해도 실행 가능한 Task로 생성됨
