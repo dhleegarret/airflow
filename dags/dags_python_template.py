@@ -10,7 +10,7 @@ with DAG(
     catchup=False,  
 ) as dag:
 
-    # 첫 번째 방법: op_kwargs
+    # 첫 번째 방법: op_kwargs에 Jinja Template 적용
     def python_function1(start_date, end_date, **kwargs):
         print(start_date)
         print(end_date)
@@ -21,7 +21,7 @@ with DAG(
         op_kwargs={'start_date':'{{data_interval_start | ds}}', 'end_date': '{{data_interval_end | ds}}'}
     )
 
-    # 두 번째 방법: 이미 정의되어있는 kwargs
+    # 두 번째 방법: task 데코레이터에? 이미 정의되어있는 python operator 변수를 kwargs에서 꺼내옴
     @task(task_id='python_t2')
     def python_function2(**kwargs):
         print(kwargs)
