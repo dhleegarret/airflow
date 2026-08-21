@@ -11,7 +11,7 @@ with DAG(
     
     @task(task_id='python_task')
     def show_templates(**kwargs):
-        from pprint import pprint   # pprint: print 결과를 가시적으로 보여주는 구문
-        pprint(kwargs)
+        from pprint import pprint   # pprint: print 결과를 가시적으로 보여주는 구문 
+        pprint(kwargs)              # Jinja template에서 제공하는 파라미터 확인 가능
 
     show_templates()
