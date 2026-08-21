@@ -26,7 +26,7 @@ with DAG(
         task_id='create_dataset',
         gcp_conn_id='gcp_conn',         # Airflow > 관리자 메뉴 > 커넥션 에 생성한 GCP 커넥션 ID
         dataset_id='airflow_test',      # 데이터셋 ID 지정
-        project_id='My Project 20860',
+        project_id='arched-vigil-506205-t1', # Google Cloud 프로젝트 ID (설정 메뉴에서 확인)
         location='asia-northeast3',
         if_exists='ignore'              # 동일한 명칭의 데이터셋이 있는 경우에 무시함
     )
