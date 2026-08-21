@@ -20,6 +20,7 @@ with DAG(
 ):
     load_csv_to_bq = GCSToBigQueryOperator(
         task_id='load_csv_to_bq',
+        gcp_conn_id='gcp_conn',
         bucket='airflow_test_bucket_dhlee',
         source_objects=['source/pokemon.csv'],
         destination_project_dataset_table='arched-vigil-506205-t1.bq_data.pokemon',
