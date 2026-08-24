@@ -28,7 +28,7 @@ with DAG(
         gcp_conn_id='gcp_conn',
         project_id='arched-vigil-506205-t1',
         location='asia-northeast3',
-        configurations={
+        configuration={
             "query": {
                 "query": SQL_QUERY,
                 "useLegacySql": False,
