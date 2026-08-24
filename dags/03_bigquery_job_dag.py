@@ -21,17 +21,20 @@ with DAG(
 
     SQL_QUERY = """
     CREATE TABLE airflow_test.grass_pokemon AS
-    SELECT * FROM bq_data.pokemon WHERE type1='Grass'
+    SELECT * FROM bq_data.pokemon WHERE `Type 1`='Grass'
     """
     bq_job = BigQueryInsertJobOperator(
         task_id='bq_job',
-        gcp_conn_id='',
-        project_id='',
+        gcp_conn_id='gcp_conn',
+        project_id='arched-vigil-506205-t1',
         location='asia-northeast3',
-        configurations=(
-
-
-        )
-
-
+        configurations={
+            "query": {
+                "query": SQL_QUERY,
+                "useLegacySql": False,
+                "priority": "BATCH",
+            }
+        }
     )
+
+    bq_job
