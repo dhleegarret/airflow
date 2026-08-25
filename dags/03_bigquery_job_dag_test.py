@@ -29,7 +29,7 @@ with DAG(
 ):
     # CREATE OR REPLACE : 매일 중복 데이터가 쌓이지 않도록 TRUNCATE & INSERT 수행
     SQL_QUERY = """
-    CREATE OR REPLACE TABLE airflow_test.grass_pokemon_test
+    CREATE OR REPLACE TABLE airflow_test.grass_pokemon_test AS
     SELECT * FROM bq_data.pokemon WHERE `Type 1`='Fire'
     """
     bq_job = BigQueryInsertJobOperator(
