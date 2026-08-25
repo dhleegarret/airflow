@@ -13,8 +13,13 @@ with DAG(
     # task 1: macros를 활용한 날짜 연산
     @task(task_id='task_using_macros',
           templates_dict={'start_date': '{{ (data_interval_end.in_timezone("Asia/Seoul") + macros.dateutil.relativedelta.relativedelta(months=-1, day=1)) | ds }}',
-                        'end_date': '{{ (data_interval_end.in_timezone("Asia/Seoul") + replace(day=1) + macros.dateutil.relativedelta.relativedelta(days=-1)) | ds }}'
+                        'end_date': '{{ (data_interval_end.in_timezone("Asia/Seoul").replace(day=1) + macros.dateutil.relativedelta.relativedelta(days=-1)) | ds }}'
           }
+
+
+        
+
+
     )
     def get_datetime_macro(**kwargs):
         templates_dict = kwargs.get('templates_dict') or {}
@@ -31,7 +36,7 @@ with DAG(
 
         data_interval_end = kwargs['data_interval_end']
         prev_month_day_first = data_interval_end.in_timezone("Asia/Seoul") + relativedelta(months=-1, day=1)
-        prev_month_day_last = data_interval_end.in_timezone("Asia/Seoul") + replace(day=1) + relativedelta(months=-1)
+        prev_month_day_last = data_interval_end.in_timezone("Asia/Seoul").replace(day=1) + relativedelta(months=-1)
         print(prev_month_day_first.strftime('%Y-%m-%d'))
         print(prev_month_day_last.strftime('%Y-%m-%d'))
 
