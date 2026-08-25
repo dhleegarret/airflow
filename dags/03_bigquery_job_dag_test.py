@@ -11,7 +11,7 @@ default_args = dict(
 )
 
 with DAG(
-    dag_id="03_bigquery_job_dag",
+    dag_id="03_bigquery_job_dag_test",
     start_date=pendulum.datetime(2026, 1, 1, tz='Asia/Seoul'),
     schedule="30 8 * * *",     # 매일 08:30 실행
     tags = [''],
